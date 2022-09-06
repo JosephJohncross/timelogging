@@ -12,6 +12,7 @@ class EditableTimerList extends Component {
                     runningSince= {null}
                     editFormOpen={false}
                 />
+                <hr/>
                 <EditableTimer 
                     title="Learn Learn extreme ironing"
                     project="World Domination"

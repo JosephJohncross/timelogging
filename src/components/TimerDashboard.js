@@ -8,6 +8,7 @@ class TimerDashboard extends Component {
             <div className="">
                 <div className="">
                     <EditableTimerList/>
+                    <hr/>
                     <ToggleableTimerForm
                         isOpen={true}
                     />
