@@ -18,10 +18,10 @@ class Timer extends React.Component {
                     </div>
                     <div className='extra content'>
                         <span className=''>
-                        <i className="uil uil-edit"></i>
+                        <i className="fa-solid fa-pen-to-square"></i>
                         </span>
                         <span className=''>
-                            <i className="uil uil-trash-alt"></i>
+                            <i className="fa-solid fa-trash"></i>
                         </span>
                     </div>
                 </div>

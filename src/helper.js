@@ -1,3 +1,6 @@
+import { v4 as uuidv4 } from "uuid";
+
+
 export function renderElapsedString(timeInMiliseconds) {
     let sec = Math.floor(timeInMiliseconds/1000) 
     let min = Math.floor(sec/60)
@@ -12,4 +15,15 @@ export function renderElapsedString(timeInMiliseconds) {
 
 function padTo2Digits(num) {
     return num.toString().padStart(2, '0');
+}
+
+export function newTimer(timer) {
+    const {title, project} = timer
+    return {
+        title: title,
+        project: project,
+        id: uuidv4(),
+        elapsed: null,
+        runningSince: null,
+    };
 }
