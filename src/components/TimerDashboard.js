@@ -30,6 +30,10 @@ class TimerDashboard extends Component {
         this.createTimer(timer);
     }
 
+    handleEditFormSubmit = (attrs) => {
+        this.updateTimer(attrs);
+    }
+
     createTimer = (timer) => {
         const t = newTimer(timer);
         this.setState({
@@ -37,12 +41,30 @@ class TimerDashboard extends Component {
         })
     }
 
+    updateTimer = (attrs) => {
+        this.setState({
+            timers: this.state.timers.map(timer => {
+                if (timer.id === attrs.id){
+                    return Object.assign({}, timer, {
+                        title: attrs.title,
+                        project: attrs.project,
+                    })
+                }
+                else{
+                    return timer
+                }
+            })
+        })
+    }
+    
+
     render() {
         return (
             <div className="">
                 <div className="">
                     <EditableTimerList
                         timers={this.state.timers}
+                        onFormSubmit={this.handleEditFormSubmit}
                     />
                     <hr/>
                     <ToggleableTimerForm

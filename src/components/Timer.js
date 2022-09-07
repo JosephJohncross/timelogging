@@ -17,8 +17,11 @@ class Timer extends React.Component {
                         <h2>{elapsedString}</h2>
                     </div>
                     <div className='extra content'>
-                        <span className=''>
-                        <i className="fa-solid fa-pen-to-square"></i>
+                        <span 
+                            className=''
+                            onClick={this.props.onEditClick}
+                        >
+                            <i className="fa-solid fa-pen-to-square"></i>
                         </span>
                         <span className=''>
                             <i className="fa-solid fa-trash"></i>
