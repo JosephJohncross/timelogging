@@ -23,7 +23,7 @@ export function newTimer(timer) {
         title: title,
         project: project,
         id: uuidv4(),
-        elapsed: null,
+        elapsed: 0,
         runningSince: null,
     };
 }

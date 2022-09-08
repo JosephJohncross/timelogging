@@ -2,6 +2,11 @@ import React from 'react'
 import {renderElapsedString} from '../helper'
 
 class Timer extends React.Component {
+
+    handleTrashClick = () => {
+        this.props.onTrashClick(this.props.id);
+    }
+
     render() {
         const elapsedString = renderElapsedString(this.props.elapsed)
         return (
@@ -23,7 +28,10 @@ class Timer extends React.Component {
                         >
                             <i className="fa-solid fa-pen-to-square"></i>
                         </span>
-                        <span className=''>
+                        <span 
+                            className=''
+                            onClick={this.handleTrashClick}
+                        >
                             <i className="fa-solid fa-trash"></i>
                         </span>
                     </div>

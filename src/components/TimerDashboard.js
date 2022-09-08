@@ -34,6 +34,10 @@ class TimerDashboard extends Component {
         this.updateTimer(attrs);
     }
 
+    handleDeleteTimer = (timerId) => {
+        this.deleteTimer(timerId)
+    }
+
     createTimer = (timer) => {
         const t = newTimer(timer);
         this.setState({
@@ -56,6 +60,18 @@ class TimerDashboard extends Component {
             })
         })
     }
+
+    deleteTimer = (timerId) => {
+        // const updatedTimerList = this.state.timers.map(timer => 
+        //     timer.id !== timerId
+        // )
+        // this.setState({timers: updatedTimerList})
+        this.setState({
+            timers: this.state.timers.filter(t => t.id !== timerId)
+        })
+        
+    }
+
     
 
     render() {
@@ -65,6 +81,7 @@ class TimerDashboard extends Component {
                     <EditableTimerList
                         timers={this.state.timers}
                         onFormSubmit={this.handleEditFormSubmit}
+                        onTrashClick={this.handleDeleteTimer}
                     />
                     <hr/>
                     <ToggleableTimerForm
