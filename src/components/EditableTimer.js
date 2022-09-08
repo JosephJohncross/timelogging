@@ -12,7 +12,7 @@ class EditableTimer extends React.Component {
         this.openForm();
     }
 
-    handleFormClose() {
+    handleFormClose = () => {
         this.closeForm();
     }
 

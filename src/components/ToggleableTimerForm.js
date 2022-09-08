@@ -30,14 +30,14 @@ class ToggleableTimerForm extends React.Component {
         }
         else{
             return (
-                <div className="">
+                <div className="bg-black text-white max-w-max px-5 py-2 mb-10">
                     <button className='' onClick={this.handleFormOpen}>
                         <i className="fa-solid fa-plus"></i>
                     </button>
                 </div>
             )
         }
-    }
+    }s
 }
 
 export default ToggleableTimerForm

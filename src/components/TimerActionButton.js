@@ -6,7 +6,7 @@ class TimerActionButton extends React.Component {
         if (this.props.timerRunning){
             return (
                 <div 
-                    className=""
+                    className="bg-red-500 max-w-fit text-white px-7 py-1 rounded-sm"
                     onClick={this.props.onStopClick}
                 >
                     Stop     
@@ -16,7 +16,7 @@ class TimerActionButton extends React.Component {
         else{
             return (
             <div 
-                className=""
+                className="bg-blue-500 max-w-fit text-white px-7 py-1 rounded-sm"
                 onClick={this.props.onStartClick}
             >
                 Start    

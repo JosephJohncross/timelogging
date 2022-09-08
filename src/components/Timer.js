@@ -27,29 +27,29 @@ class Timer extends React.Component {
     render() {
         const elapsedString = renderElapsedString(this.props.elapsed, this.props.runningSince)
         return (
-            <div className=''>
-                <div className="content">
-                    <div className='header'>
-                        {this.props.title}
+            <div className='mb-10 shadow-lg py-4 px-4 md:min-w-[300px]'>
+                <div className="content space-y-2">
+                    <div className='header text-2xl'>
+                        {this.props.title} 
                     </div>
                     <div className='meta'>
                         {this.props.project}
                     </div>
-                    <div className="">
+                    <div className="font-bold text-xl">
                         <h2>{elapsedString}</h2>
                     </div>
-                    <div className='extra content'>
+                    <div className='flex space-x-2 pb-4'>
                         <span 
                             className=''
                             onClick={this.props.onEditClick}
                         >
-                            <i className="fa-solid fa-pen-to-square"></i>
-                        </span>
+                            <i className="fa-solid fa-pen-to-square text-green-500"></i>
+                        </span> 
                         <span 
-                            className=''
+                            className=' '
                             onClick={this.handleTrashClick}
                         >
-                            <i className="fa-solid fa-trash"></i>
+                            <i className="fa-solid fa-trash text-red-500"></i>
                         </span>
                     </div>
                 </div>

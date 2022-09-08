@@ -100,7 +100,7 @@ class TimerDashboard extends Component {
     stopTimer = (timerId) => {
         const now = Date.now();
 
-        this.setState({
+        this.setState({  
             timers: this.state.timers.map(timer => {
                 if (timer.id === timerId){
                     const lastElapsed = now - timer.runningSince;
@@ -109,7 +109,7 @@ class TimerDashboard extends Component {
                         runningSince: null,
                     })
                 }
-                else{
+                else{ 
                     return timer
                 }
             })
@@ -120,8 +120,8 @@ class TimerDashboard extends Component {
 
     render() {
         return (
-            <div className="">
-                <div className="">
+            <div className="mt-10 max-w-5xl mx-auto px-5">
+                <div className="border-1 border-slate-500">
                     <EditableTimerList
                         timers={this.state.timers}
                         onFormSubmit={this.handleEditFormSubmit}
@@ -129,7 +129,6 @@ class TimerDashboard extends Component {
                         onStartClick={this.handleStartClick}
                         onStopClick={this.handleStopClick}
                     />
-                    <hr/>
                     <ToggleableTimerForm
                         onFormSubmit = {this.handleCreateFormSubmit}
                     />

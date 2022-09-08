@@ -20,9 +20,9 @@ class EditableTimerList extends Component {
             />
         ))
         return (
-            <div id="timers" className="">
+            <div id="timers" className="flex flex-col md:flex-row md:space-x-4">
                 {timers}
-            </div>
+            </div>  
         );
     }
 }
