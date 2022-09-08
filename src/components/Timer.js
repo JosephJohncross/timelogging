@@ -1,14 +1,31 @@
 import React from 'react'
 import {renderElapsedString} from '../helper'
+import TimerActionButton from './TimerActionButton';
 
 class Timer extends React.Component {
+
+    componentDidMount() {
+        this.forceUpdateInterval = setInterval(()=>this.forceUpdate(), 50);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.forceUpdateInterval)
+    }
+
+    handleStartClick = () => {
+        this.props.onStartClick(this.props.id);
+    }
+
+    handleStopClick = () => {
+        this.props.onStopClick(this.props.id);
+    }
 
     handleTrashClick = () => {
         this.props.onTrashClick(this.props.id);
     }
 
     render() {
-        const elapsedString = renderElapsedString(this.props.elapsed)
+        const elapsedString = renderElapsedString(this.props.elapsed, this.props.runningSince)
         return (
             <div className=''>
                 <div className="content">
@@ -36,7 +53,11 @@ class Timer extends React.Component {
                         </span>
                     </div>
                 </div>
-                <div className=''>Start</div>
+                <TimerActionButton
+                    timerRunning={!!this.props.runningSince}
+                    onStartClick={this.handleStartClick}
+                    onStopClick={this.handleStopClick}
+                />
             </div>
         )
     }

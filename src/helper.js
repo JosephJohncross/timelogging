@@ -1,8 +1,16 @@
 import { v4 as uuidv4 } from "uuid";
 
 
-export function renderElapsedString(timeInMiliseconds) {
-    let sec = Math.floor(timeInMiliseconds/1000) 
+export function renderElapsedString(timeInMiliseconds, runningState) {
+    let timeSeconds
+    if (runningState === null){
+        timeSeconds = timeInMiliseconds;
+    }
+    else{
+        timeSeconds = timeInMiliseconds + (Date.now() - runningState);
+    }
+
+    let sec = Math.floor(timeSeconds/1000) 
     let min = Math.floor(sec/60)
     let hrs = Math.floor(min/60)
 
@@ -10,7 +18,7 @@ export function renderElapsedString(timeInMiliseconds) {
     min = min % 60;
     hrs = hrs % 24;
 
-    return `${padTo2Digits(hrs)}: ${padTo2Digits(min)}:${padTo2Digits(hrs)}`
+    return `${padTo2Digits(hrs)}: ${padTo2Digits(min)}:${padTo2Digits(sec)}`
 }
 
 function padTo2Digits(num) {
@@ -27,3 +35,4 @@ export function newTimer(timer) {
         runningSince: null,
     };
 }
+
